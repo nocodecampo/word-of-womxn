@@ -14,12 +14,12 @@ print_r(multiplicarValores($arrayParaMultiplicar));
 
 // concatenarIniciales($nombres) → Devuelve un string con las iniciales de cada nombre (array_reduce()).
 
-$nombresInicial = ["Diego", "Antonio", "David", "Juan"];
+$nombresInicial = ["Diego", "Antonio", "David", "Juan", "Ángel"];
 
 function concatenarIniciales($nombres){
     $iniciales = [];
     foreach($nombres as $nombre){
-        $iniciales[] = substr($nombre, 0, 1);
+        $iniciales[] = mb_substr($nombre, 0, 1, 'UTF-8');
     }
     return array_reduce ($iniciales, fn($union, $inicial) => $union." ".$inicial, "");
 }
@@ -50,6 +50,17 @@ function maximoValor($numeros){
 }
 
 print_r(maximoValor($valores));
+
+// consegior
+$texto = "Hola Mundo";
+$primerCaracter = $texto[0];
+
+echo $primerCaracter;
+
+$texto = "Adios Mundi";
+$primerCarater = mb_substr($texto, 0, 1, "UTF-8");
+
+echo $primerCaracter;
 
 
 
